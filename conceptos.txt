@@ -1,0 +1,24 @@
+Conceptos Teóricos
+
+Diferencias entre Firebase (NoSQL) y Bases de Datos Relacionales (SQL):
+
+- Firebase (NoSQL): Posee un esquema flexible basado en JSON. Cuenta con escalabilidad horizontal y comunicación nativa en "tiempo real" mediante WebSockets. El control suele estar más cerca del Frontend.
+- Relacional (SQL): Posee una estructura rígida (esquema) e integridad referencial mediante claves foráneas. Es ideal para transacciones complejas y datos altamente relacionados. La comunicación se realiza por peticiones/respuestas HTTP REST y el control está centralizado en el Backend.
+
+Capas de Persistencia: JDBC vs. JPA / Hibernate:
+
+- JDBC (Java Database Connectivity): Es el nivel más bajo de conexión. Requiere escribir el código SQL manualmente en cadenas de texto dentro de Java, lo cual es tedioso y propenso a errores.
+- JPA (Java Persistence API): Es la especificación estándar de Java para el mapeo objeto-relacional (ORM).
+- Hibernate: Es la implementación más popular de JPA. Se encarga de "traducir" las clases de Java a tablas de la base de datos, evitando escribir consultas básicas manualmente.
+
+Arquitectura en Capas
+
+El flujo de una petición desde que nace en el cliente hasta que se busca en la base de datos sigue este orden:
+
+1. DB (Base de Datos): El dato físico guardado en una fila.  
+2. Entity (Entidad): Objeto Java (POJO) que mapea la fila de la DB mediante anotaciones.  
+3. Repository (Repositorio): Interfaz que extiende de JpaRepository y maneja las operaciones CRUD.  
+4. Service (Servicio Backend): Capa opcional pero recomendada para la lógica de negocio, filtros y validaciones.  
+5. Controller (Controlador REST): El punto de entrada de la API que expone los endpoints HTTP.  
+6. Angular Service: Servicio en el frontend que usa HttpClient para comunicarse con el controlador.  
+7. Component (Componente Angular): Recibe los datos del servicio y los asigna a variables para su renderizado en el HTML. 
