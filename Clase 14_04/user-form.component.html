@@ -1,0 +1,9 @@
+<input formControlName="username">
+
+<div *ngIf="username.pending" class="loading-text">
+  Verificando disponibilidad...
+</div>
+
+<div *ngIf="username.errors?.['usernameTaken']" class="error-text">
+  Este nombre de usuario ya está en uso.
+</div>

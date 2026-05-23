@@ -1,0 +1,23 @@
+Conceptos
+Ciclo de vida del estado: Cada control de formulario tiene tres estados: 
+- VALID (cumple reglas)
+- INVALID (no cumple)
+- PENDING (esperando respuesta asíncrona del backend).
+
+
+
+
+_Validador Asíncrono (AsyncValidatorFn): Se utiliza para validar datos contra una base de datos sin bloquear la interfaz de usuario.
+_DebounceTime: Técnica esencial para esperar a que el usuario deje de escribir antes de enviar la petición al servidor, evitando saturarlo.
+_Gestión de peticiones con RxJS:
+        switchMap: Cancela automáticamente las peticiones anteriores si el valor cambia rápidamente, procesando solo la última.
+        catchError: Permite manejar errores del servidor sin bloquear el formulario.
+
+Organización de archivos
+src/app/services/user.service.ts: Lógica de comunicación con el backend.
+src/app/validators/custom-validators.ts: Clase con los validadores personalizados.
+src/app/components/user-form/user-form.component.ts: Componente donde se configura el formulario reactivo.
+src/app/components/user-form/user-form.component.html: Template para el feedback visual (UX).
+
+src/main/java/.../repository/UserRepository.java: Interfaz que utiliza existsBy... para consultas eficientes a la BD
+src/main/java/.../controller/ValidationController.java: Controlador que expone el endpoint /api/validators/check-unique.
